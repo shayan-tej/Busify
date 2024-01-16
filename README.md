@@ -21,9 +21,9 @@ Busify is an Android app developed for convenient RTC bus ticket booking, paymen
 
 ## Screenshots
 
-![App Screenshots](/screenshots/screenshot1.png)
-![App Screenshots](/screenshots/screenshot2.png)
-![App Screenshots](/screenshots/screenshot3.png)
+![Busify](/screenshots/splash_screen.jpg)
+![Passenger](/screenshots/passenger.jpg)
+![Conductor](/screenshots/conductor.jpg)
 
 ## Getting Started
 
