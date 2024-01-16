@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.sip.busify" />
+                  <option name="mobileSdkAppId" value="1:233456013830:android:77a1a521c73d23133f2987" />
+                  <option name="projectId" value="busify-d1cce" />
+                  <option name="projectNumber" value="233456013830" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
