@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".PassengerFragment">
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:id="@+id/topLinearLayout2"
+		android:layout_width="match_parent"
+		android:layout_height="240dp"
+		android:background="@drawable/top_background"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:ignore="MissingConstraints" />
+
+	<TextView
+		android:id="@+id/layoutHeader"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:text="@string/conductor"
+		android:visibility="invisible"
+		android:textColor="@color/white"
+		android:textSize="50sp"
+		android:textStyle="bold"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView2"
+		android:layout_width="180dp"
+		android:layout_height="90dp"
+		app:cardCornerRadius="15dp"
+		app:cardElevation="21dp"
+		android:visibility="invisible"
+		app:layout_constraintBottom_toTopOf="@+id/cardView1"
+		app:layout_constraintEnd_toEndOf="@+id/cardView1"
+		app:layout_constraintStart_toStartOf="@+id/cardView1"
+		app:layout_constraintTop_toTopOf="@+id/cardView1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/card_background">
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:contentDescription="@string/description"
+				android:padding="10dp"
+				android:scaleType="centerCrop"
+				android:src="@drawable/bus_logo"/>
+		</LinearLayout>
+
+	</androidx.cardview.widget.CardView>
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView1"
+		android:layout_width="match_parent"
+		android:layout_height="420dp"
+		android:layout_marginStart="30dp"
+		android:layout_marginTop="60dp"
+		android:layout_marginEnd="30dp"
+		android:visibility="invisible"
+		app:cardCornerRadius="15dp"
+		app:cardElevation="20dp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/scanText"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="60dp"
+				android:text="Scan QR Ticket"
+				android:textSize="38sp"
+				android:textStyle="bold"
+				tools:ignore="HardcodedText" />
+
+			<androidx.cardview.widget.CardView
+				android:id="@+id/cardView3"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				app:cardCornerRadius="15dp"
+				app:cardElevation="22dp"
+				app:layout_constraintBottom_toTopOf="@+id/scanText"
+				app:layout_constraintEnd_toEndOf="@+id/cardView1"
+				app:layout_constraintStart_toStartOf="@+id/cardView1"
+				app:layout_constraintTop_toTopOf="@+id/cardView1"
+				android:layout_marginHorizontal="30dp"
+				android:layout_marginVertical="30dp"
+				android:visibility="visible">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:background="@drawable/card_background">
+
+					<ImageView
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:contentDescription="@string/description"
+						android:scaleType="centerCrop"
+						android:src="@drawable/qr_scan_img_foreground" />
+				</LinearLayout>
+			</androidx.cardview.widget.CardView>
+		</LinearLayout>
+	</androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

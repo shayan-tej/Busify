@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".PassengerFragment">
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:id="@+id/topLinearLayout2"
+		android:layout_width="match_parent"
+		android:layout_height="240dp"
+		android:background="@drawable/top_background"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:ignore="MissingConstraints" />
+
+	<TextView
+		android:id="@+id/layoutHeader"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:text="@string/passenger"
+		android:visibility="invisible"
+		android:textColor="@color/white"
+		android:textSize="50sp"
+		android:textStyle="bold"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView2"
+		android:layout_width="180dp"
+		android:layout_height="90dp"
+		app:cardCornerRadius="15dp"
+		app:cardElevation="21dp"
+		android:visibility="invisible"
+		app:layout_constraintBottom_toTopOf="@+id/cardView1"
+		app:layout_constraintEnd_toEndOf="@+id/cardView1"
+		app:layout_constraintStart_toStartOf="@+id/cardView1"
+		app:layout_constraintTop_toTopOf="@+id/cardView1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/card_background">
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:contentDescription="@string/description"
+				android:padding="10dp"
+				android:scaleType="centerCrop"
+				android:src="@drawable/bus_logo"/>
+		</LinearLayout>
+
+	</androidx.cardview.widget.CardView>
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView1"
+		android:layout_width="match_parent"
+		android:layout_height="360dp"
+		android:layout_marginStart="30dp"
+		android:layout_marginTop="60dp"
+		android:layout_marginEnd="30dp"
+		android:visibility="invisible"
+		app:cardCornerRadius="15dp"
+		app:cardElevation="20dp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="60dp"
+				android:text="@string/location_header"
+				android:textSize="30sp"
+				android:textStyle="bold" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="100dp"
+				android:padding="8dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="20dp"
+				android:layout_marginEnd="20dp"
+				android:gravity="center_vertical"
+				android:orientation="vertical">
+
+				<TextView
+					android:id="@+id/from"
+					android:layout_width="wrap_content"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:text="From -"
+					android:textSize="18sp"
+					android:textStyle="bold"
+					android:textColor="@color/color_primary"
+					tools:ignore="HardcodedText" />
+
+				<AutoCompleteTextView
+					android:id="@+id/fromLocationSelector"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="16dp"
+					android:completionThreshold="1"
+					android:inputType="textShortMessage"
+					android:hint="Beginning"
+					android:textColorHint="#757575"
+					android:minHeight="48dp"
+					tools:ignore="HardcodedText" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="100dp"
+				android:padding="8dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="20dp"
+				android:layout_marginEnd="20dp"
+				android:gravity="center_vertical"
+				android:orientation="vertical">
+
+				<TextView
+					android:id="@+id/to"
+					android:layout_width="wrap_content"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:text="To -"
+					android:textSize="18sp"
+					android:textStyle="bold"
+					android:textColor="@color/color_primary"
+					tools:ignore="HardcodedText" />
+
+				<AutoCompleteTextView
+					android:id="@+id/toLocationSelector"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="16dp"
+					android:completionThreshold="1"
+					android:inputType="textShortMessage"
+					android:hint="Destination"
+					android:minHeight="48dp"
+					android:textColorHint="#757575"
+					tools:ignore="HardcodedText" />
+			</LinearLayout>
+		</LinearLayout>
+	</androidx.cardview.widget.CardView>
+
+	<androidx.appcompat.widget.AppCompatButton
+		android:id="@+id/bookTicketButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="25dp"
+		android:background="@drawable/button_background"
+		android:paddingHorizontal="10dp"
+		android:text="@string/book_ticket"
+		android:textColor="#F3E5F5"
+		android:visibility="invisible"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/cardView1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

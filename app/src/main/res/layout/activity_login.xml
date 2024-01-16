@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".LoginActivity">
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:id="@+id/topLinearLayout2"
+		android:layout_width="match_parent"
+		android:layout_height="240dp"
+		android:background="@drawable/top_background"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:ignore="MissingConstraints" />
+
+	<TextView
+		android:id="@+id/appName"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:text="@string/app_name"
+		android:visibility="invisible"
+		android:textColor="@color/white"
+		android:textSize="50sp"
+		android:textStyle="bold"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView2"
+		android:layout_width="180dp"
+		android:layout_height="90dp"
+		app:cardCornerRadius="15dp"
+		app:cardElevation="21dp"
+		android:visibility="invisible"
+		app:layout_constraintBottom_toTopOf="@+id/cardView1"
+		app:layout_constraintEnd_toEndOf="@+id/cardView1"
+		app:layout_constraintStart_toStartOf="@+id/cardView1"
+		app:layout_constraintTop_toTopOf="@+id/cardView1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/card_background">
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:contentDescription="@string/description"
+				android:padding="10dp"
+				android:scaleType="centerCrop"
+				android:src="@drawable/bus_logo" />
+		</LinearLayout>
+
+	</androidx.cardview.widget.CardView>
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView1"
+		android:layout_width="match_parent"
+		android:layout_height="400dp"
+		android:layout_marginStart="30dp"
+		android:layout_marginTop="50dp"
+		android:layout_marginEnd="30dp"
+		android:visibility="invisible"
+		app:cardCornerRadius="15dp"
+		app:cardElevation="20dp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/appName">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="50dp"
+				android:text="@string/profile"
+				android:textSize="40sp"
+				android:textStyle="bold" />
+
+			<EditText
+				android:id="@+id/userFullNameEditText"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="20dp"
+				android:layout_marginEnd="20dp"
+				android:autofillHints="phone"
+				android:background="@drawable/edit_text_background"
+				android:drawableStart="@drawable/user_name"
+				android:drawablePadding="10dp"
+				android:hint="@string/full_name"
+				android:inputType="textPersonName"
+				android:maxLength="30"
+				android:paddingStart="10dp"
+				android:textColorHint="#757575"
+				tools:ignore="RtlSymmetry" />
+
+			<EditText
+				android:id="@+id/userDateOfBirth"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="10dp"
+				android:layout_marginEnd="20dp"
+				android:autofillHints="none"
+				android:background="@drawable/edit_text_background"
+				android:drawableStart="@drawable/baseline_calendar"
+				android:drawablePadding="10dp"
+				android:focusable="false"
+				android:hint="@string/d_o_b"
+				android:inputType="date"
+				android:onClick="showDatePicker"
+				android:paddingStart="10dp"
+				android:textColorHint="#757575"
+				tools:ignore="RtlSymmetry,UsingOnClickInXml" />
+
+			<EditText
+				android:id="@+id/userGender"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="10dp"
+				android:layout_marginEnd="20dp"
+				android:autofillHints="none"
+				android:background="@drawable/edit_text_background"
+				android:drawableStart="@drawable/baseline_gender"
+				android:drawablePadding="10dp"
+				android:focusable="false"
+				android:hint="@string/gender"
+				android:paddingStart="10dp"
+				android:textColorHint="#757575"
+				tools:ignore="RtlSymmetry"
+				android:inputType="text" />
+
+			<Spinner
+				android:id="@+id/userGenderSpinner"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="10dp"
+				android:layout_marginEnd="20dp"
+				android:autofillHints="gender"
+				android:background="@drawable/edit_text_background"
+				android:drawableStart="@drawable/baseline_gender"
+				android:drawablePadding="10dp"
+				android:visibility="gone"
+				android:padding="12dp" />
+
+			<androidx.appcompat.widget.AppCompatButton
+				android:id="@+id/doneSavingUserDetails"
+				android:layout_width="160dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="30dp"
+				android:background="@drawable/button_background"
+				android:text="@string/done"
+				android:textColor="@color/white"
+				android:textSize="20sp" />
+
+		</LinearLayout>
+	</androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

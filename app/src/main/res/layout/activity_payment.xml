@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".PaymentActivity">
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:id="@+id/topLinearLayout1"
+		android:layout_width="match_parent"
+		android:layout_height="240dp"
+		android:background="@drawable/top_background"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:ignore="MissingConstraints" />
+
+	<TextView
+		android:id="@+id/layoutHeader"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:text="@string/payment"
+		android:visibility="invisible"
+		android:textColor="@color/white"
+		android:textSize="50sp"
+		android:textStyle="bold"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView2"
+		android:layout_width="180dp"
+		android:layout_height="90dp"
+		app:cardCornerRadius="15dp"
+		app:cardElevation="21dp"
+		android:visibility="invisible"
+		app:layout_constraintBottom_toTopOf="@+id/cardView1"
+		app:layout_constraintEnd_toEndOf="@+id/cardView1"
+		app:layout_constraintStart_toStartOf="@+id/cardView1"
+		app:layout_constraintTop_toTopOf="@+id/cardView1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/card_background">
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:contentDescription="@string/description"
+				android:padding="10dp"
+				android:scaleType="centerCrop"
+				android:src="@drawable/bus_logo" />
+		</LinearLayout>
+
+	</androidx.cardview.widget.CardView>
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView1"
+		android:layout_width="match_parent"
+		android:layout_height="400dp"
+		android:layout_marginStart="30dp"
+		android:layout_marginTop="50dp"
+		android:layout_marginEnd="30dp"
+		android:visibility="invisible"
+		app:cardCornerRadius="15dp"
+		app:cardElevation="20dp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/fromTo"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="xxxx to xxxx"
+				android:textColor="@color/black"
+				android:textSize="20sp"
+				android:layout_marginBottom="15dp"
+				tools:ignore="HardcodedText" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Ticket fair is"
+				android:textColor="@color/black"
+				android:textSize="40sp"
+				tools:ignore="HardcodedText" />
+
+			<TextView
+				android:id="@+id/fairTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Rs.00.00"
+				android:textColor="@color/black"
+				android:textSize="45sp"
+				tools:ignore="HardcodedText" />
+
+		</LinearLayout>
+	</androidx.cardview.widget.CardView>
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView3"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:cardCornerRadius="25dp"
+		app:cardElevation="21dp"
+		android:visibility="invisible"
+		app:layout_constraintBottom_toBottomOf="@+id/cardView1"
+		app:layout_constraintEnd_toEndOf="@+id/cardView1"
+		app:layout_constraintStart_toStartOf="@+id/cardView1"
+		app:layout_constraintTop_toBottomOf="@+id/cardView1"
+		app:layout_editor_absoluteX="180dp"
+		app:layout_editor_absoluteY="594dp"
+		tools:ignore="MissingConstraints">
+
+		<androidx.appcompat.widget.AppCompatButton
+			android:id="@+id/payBtn"
+			android:layout_width="150dp"
+			android:layout_height="55dp"
+			android:layout_gravity="center_horizontal"
+			android:background="@drawable/button_background"
+			android:text="PAY"
+			android:textColor="@color/white"
+			android:textSize="20sp"
+			tools:ignore="HardcodedText" />
+
+	</androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

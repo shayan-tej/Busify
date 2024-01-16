@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item
+		android:id="@+id/conductor"
+		android:title="@string/conductor"
+		android:icon="@drawable/conductor_icon" />
+
+	<item
+		android:id="@+id/passenger"
+		android:title="@string/passenger"
+		android:icon="@drawable/passenger_icon" />
+
+	<item
+		android:id="@+id/account"
+		android:title="@string/account"
+		android:icon="@drawable/profile_icon" />
+
+</menu>

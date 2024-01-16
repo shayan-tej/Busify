@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".AccountFragment">
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:id="@+id/topLinearLayout2"
+		android:layout_width="match_parent"
+		android:layout_height="240dp"
+		android:background="@drawable/top_background"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:ignore="MissingConstraints" />
+
+	<TextView
+		android:id="@+id/layoutHeader"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:text="@string/account"
+		android:visibility="invisible"
+		android:textColor="@color/white"
+		android:textSize="50sp"
+		android:textStyle="bold"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView2"
+		android:layout_width="100dp"
+		android:layout_height="100dp"
+		app:cardCornerRadius="100dp"
+		app:cardElevation="21dp"
+		android:visibility="invisible"
+		app:layout_constraintBottom_toTopOf="@+id/cardView1"
+		app:layout_constraintEnd_toEndOf="@+id/cardView1"
+		app:layout_constraintStart_toStartOf="@+id/cardView1"
+		app:layout_constraintTop_toTopOf="@+id/cardView1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/profile_picture_background">
+
+			<ImageView
+				android:id="@+id/profilePicture"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:scaleType="centerCrop"
+				android:src="@drawable/user_profile_picture"
+				android:backgroundTint="@color/white"
+				android:contentDescription="User's Profile Picture"
+				tools:ignore="HardcodedText" />
+
+	</LinearLayout>
+
+	</androidx.cardview.widget.CardView>
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView1"
+		android:layout_width="match_parent"
+		android:layout_height="350dp"
+		android:layout_marginStart="30dp"
+		android:layout_marginTop="60dp"
+		android:layout_marginEnd="30dp"
+		android:visibility="invisible"
+		app:cardCornerRadius="15dp"
+		app:cardElevation="20dp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="40dp"
+				android:text="@string/profile"
+				android:textSize="40sp"
+				android:textStyle="bold" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:padding="8dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="10dp"
+				android:layout_marginEnd="10dp"
+				android:gravity="center_vertical"
+				android:orientation="horizontal">
+
+				<TextView
+					android:id="@+id/name"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="Name"
+					android:textSize="18sp"
+					android:textStyle="bold"
+					android:textColor="@color/color_primary"
+					tools:ignore="HardcodedText" />
+
+				<TextView
+					android:id="@+id/profileName"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="user"
+					android:textAlignment="viewEnd"
+					android:textColor="@color/color_secondary"
+					android:textSize="13sp"
+					android:textStyle="bold"
+					tools:ignore="HardcodedText,TextContrastCheck" />
+
+			</LinearLayout>
+
+			<androidx.appcompat.widget.AppCompatImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:layout_marginHorizontal="10dp"
+				android:alpha="0.5"
+				android:background="@color/color_primary"
+				tools:ignore="ImageContrastCheck" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:padding="8dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="10dp"
+				android:layout_marginEnd="10dp"
+				android:gravity="center_vertical"
+				android:orientation="horizontal">
+
+				<TextView
+					android:id="@+id/credential"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="mail / phone"
+					android:textSize="18sp"
+					android:textStyle="bold"
+					android:textColor="@color/color_primary"
+					tools:ignore="HardcodedText" />
+
+				<TextView
+					android:id="@+id/profileCredential"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="credential"
+					android:textAlignment="viewEnd"
+					android:textColor="@color/color_secondary"
+					android:textSize="13sp"
+					android:textStyle="bold"
+					tools:ignore="HardcodedText,TextContrastCheck" />
+
+			</LinearLayout>
+
+			<androidx.appcompat.widget.AppCompatImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:layout_marginHorizontal="10dp"
+				android:alpha="0.5"
+				android:background="@color/color_primary"
+				tools:ignore="ImageContrastCheck" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:padding="8dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="10dp"
+				android:layout_marginEnd="10dp"
+				android:gravity="center_vertical"
+				android:orientation="horizontal">
+
+				<TextView
+					android:id="@+id/DOB"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="DOB"
+					android:textSize="18sp"
+					android:textStyle="bold"
+					android:textColor="@color/color_primary"
+					tools:ignore="HardcodedText" />
+
+				<TextView
+					android:id="@+id/profileDOB"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="DOB"
+					android:textAlignment="viewEnd"
+					android:textColor="@color/color_secondary"
+					android:textSize="13sp"
+					android:textStyle="bold"
+					tools:ignore="HardcodedText,TextContrastCheck" />
+
+			</LinearLayout>
+
+			<androidx.appcompat.widget.AppCompatImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:layout_marginHorizontal="10dp"
+				android:alpha="0.5"
+				android:background="@color/color_primary"
+				tools:ignore="ImageContrastCheck" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:padding="8dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="10dp"
+				android:layout_marginEnd="10dp"
+				android:gravity="center_vertical"
+				android:orientation="horizontal">
+
+				<TextView
+					android:id="@+id/gender"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="Gender"
+					android:textSize="18sp"
+					android:textStyle="bold"
+					android:textColor="@color/color_primary"
+					tools:ignore="HardcodedText" />
+
+				<TextView
+					android:id="@+id/profileGender"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="gender"
+					android:textAlignment="viewEnd"
+					android:textColor="@color/color_secondary"
+					android:textSize="13sp"
+					android:textStyle="bold"
+					tools:ignore="HardcodedText,TextContrastCheck" />
+
+			</LinearLayout>
+
+		</LinearLayout>
+	</androidx.cardview.widget.CardView>
+
+	<androidx.appcompat.widget.AppCompatButton
+		android:id="@+id/signOutButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:background="@drawable/button_background"
+		android:text="@string/sign_out"
+		android:visibility="invisible"
+		android:textColor="@color/white"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/cardView1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

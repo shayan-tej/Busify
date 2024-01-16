@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".MainActivity">
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:id="@+id/topLinearLayout2"
+		android:layout_width="match_parent"
+		android:layout_height="240dp"
+		android:background="@drawable/top_background"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:ignore="MissingConstraints" />
+
+	<TextView
+		android:id="@+id/appName"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:text="@string/app_name"
+		android:visibility="invisible"
+		android:textColor="@color/white"
+		android:textSize="50sp"
+		android:textStyle="bold"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView2"
+		android:layout_width="180dp"
+		android:layout_height="90dp"
+		app:cardCornerRadius="15dp"
+		app:cardElevation="21dp"
+		android:visibility="invisible"
+		app:layout_constraintBottom_toTopOf="@+id/cardView1"
+		app:layout_constraintEnd_toEndOf="@+id/cardView1"
+		app:layout_constraintStart_toStartOf="@+id/cardView1"
+		app:layout_constraintTop_toTopOf="@+id/cardView1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/card_background">
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:contentDescription="@string/description"
+				android:padding="10dp"
+				android:scaleType="centerCrop"
+				android:src="@drawable/bus_logo" />
+		</LinearLayout>
+
+	</androidx.cardview.widget.CardView>
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView1"
+		android:layout_width="match_parent"
+		android:layout_height="400dp"
+		android:layout_marginStart="30dp"
+		android:layout_marginTop="50dp"
+		android:layout_marginEnd="30dp"
+		android:visibility="invisible"
+		app:cardCornerRadius="15dp"
+		app:cardElevation="20dp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/appName">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="50dp"
+				android:text="@string/sign_up"
+				android:textSize="40sp"
+				android:textStyle="bold" />
+
+			<EditText
+				android:id="@+id/phoneNumberEditText"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="20dp"
+				android:layout_marginEnd="20dp"
+				android:autofillHints="phone"
+				android:background="@drawable/edit_text_background"
+				android:drawableStart="@drawable/baseline_phone_24"
+				android:drawablePadding="10dp"
+				android:hint="@string/mobile_number"
+				android:inputType="phone"
+				android:maxLength="10"
+				android:paddingStart="10dp"
+				tools:ignore="RtlSymmetry" />
+
+			<EditText
+				android:id="@+id/otpEditText"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="10dp"
+				android:layout_marginEnd="20dp"
+				android:autofillHints="password"
+				android:background="@drawable/edit_text_background"
+				android:drawableStart="@drawable/baseline_password_24"
+				android:drawablePadding="10dp"
+				android:hint="@string/otp"
+				android:inputType="number"
+				android:maxLength="6"
+				android:paddingStart="10dp"
+				tools:ignore="RtlSymmetry" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="20dp"
+				android:layout_marginTop="10dp"
+				android:text="@string/get_otp_text"
+				android:textColor="@color/color_primary" />
+
+			<androidx.appcompat.widget.AppCompatButton
+				android:id="@+id/sendOtpButton"
+				android:layout_width="160dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="30dp"
+				android:background="@drawable/button_background"
+				android:text="@string/get_otp"
+				android:textColor="@color/white"
+				android:textSize="20sp" />
+
+		</LinearLayout>
+	</androidx.cardview.widget.CardView>
+
+	<androidx.cardview.widget.CardView
+		android:id="@+id/cardView3"
+		android:layout_width="70dp"
+		android:layout_height="70dp"
+		app:cardCornerRadius="100dp"
+		app:cardElevation="21dp"
+		android:visibility="invisible"
+		app:layout_constraintBottom_toBottomOf="@+id/cardView1"
+		app:layout_constraintEnd_toEndOf="@+id/cardView1"
+		app:layout_constraintStart_toStartOf="@+id/cardView1"
+		app:layout_constraintTop_toBottomOf="@+id/cardView1"
+		app:layout_editor_absoluteX="180dp"
+		app:layout_editor_absoluteY="594dp"
+		tools:ignore="MissingConstraints">
+
+		<ImageView
+			android:id="@+id/googleIcon"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:contentDescription="@string/signup_with_google"
+			android:padding="8dp"
+			android:src="@drawable/google" />
+
+	</androidx.cardview.widget.CardView>
+
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/verifyOtpButton"
+		android:layout_width="200dp"
+		android:layout_height="50dp"
+		android:layout_marginTop="40dp"
+		android:background="@drawable/register_button_background"
+		android:visibility="invisible"
+		app:layout_constraintEnd_toEndOf="@+id/cardView3"
+		app:layout_constraintStart_toStartOf="@+id/cardView3"
+		app:layout_constraintTop_toBottomOf="@+id/cardView3"
+		tools:ignore="MissingConstraints">
+
+		<TextView
+			android:id="@+id/textView2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="10dp"
+			android:text="@string/sign_up"
+			android:textColor="@color/black"
+			android:textSize="22sp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+		<ImageView
+			android:id="@+id/btnVerifyLayoutArrow"
+			android:src="@drawable/arrow_right"
+			android:layout_width="50dp"
+			android:layout_height="50dp"
+			android:padding="5dp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			android:contentDescription="@string/sign_up" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
