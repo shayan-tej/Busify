@@ -1,12 +1,14 @@
 package com.sip.busify;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -15,17 +17,18 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.sip.busify.databinding.ActivityConductorTicketBinding;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.OutputStream;
-import java.nio.file.Files;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ConductorTicketActivity extends AppCompatActivity {
 	TextView ticketNo, dAT, fromAndTo, busNo, validity, costOfTicket, validText;
 	ImageButton PrintTicket;
 	Boolean validOrNot;
+	String UID, tNum;
 
 	@SuppressLint("SetTextI18n")
 	@Override
@@ -49,15 +52,16 @@ public class ConductorTicketActivity extends AppCompatActivity {
 			String b = intent.getStringExtra("dAT");
 			String c = intent.getStringExtra("fa");
 			String d = intent.getStringExtra("fr");
-			String e = intent.getStringExtra("tN");
+			tNum = intent.getStringExtra("tN");
 			String f = intent.getStringExtra("to");
 			String g = intent.getStringExtra("vT");
+			UID = intent.getStringExtra("UID");
 			boolean h = intent.getBooleanExtra("dT", false);
 			boolean i = intent.getBooleanExtra("iV", true);
 
 			validOrNot = !h && i;
 
-			ticketNo.setText("Ticket No.:  " + e);
+			ticketNo.setText("Ticket No.:  " + tNum);
 			dAT.setText(b);
 			fromAndTo.setText(d + "   to   " + f);
 			busNo.setText(a);
@@ -90,40 +94,56 @@ public class ConductorTicketActivity extends AppCompatActivity {
 		finish();
 	}
 
+	private void updateTicketValidity() {
+		FirebaseFirestore dbf = FirebaseFirestore.getInstance();
+
+		Map<String, Object> updates = new HashMap<>();
+		updates.put("didTravel", true);
+
+		dbf.collection(UID)
+				.document(tNum)
+				.update(updates)
+				.addOnSuccessListener(aVoid -> Log.d(TAG, "Ticket invalid"))
+				.addOnFailureListener(e -> Log.e(TAG, "Failed to update ticket validity", e));
+	}
+
 	private void printTicket(View view) {
 		try {
-			// Create a directory if it doesn't exist
-			File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Busify");
-			if (!dir.exists())
-				dir.mkdirs();
-
-			String fileName = "conductor_busify.jpeg";
-			File imageFile = new File(dir, fileName);
-
-			// Create an output stream for the file
-			OutputStream fos = null;
-			if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
-				fos = Files.newOutputStream(imageFile.toPath());
-
 			// Get the bitmap from the view
 			view.setDrawingCacheEnabled(true);
 			Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
 			view.setDrawingCacheEnabled(false);
 
-			// Compress and write the bitmap to the output stream
-			assert fos != null;
-			bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+			// Convert the bitmap to Base64
 			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-			bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream); // Use PNG format for lossless compression
-			String imageBase64 = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
+			bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+			byte[] byteArray = byteArrayOutputStream.toByteArray();
+			String base64Image = Base64.encodeToString(byteArray, Base64.DEFAULT);
 
-			// Close the output stream
-			fos.flush();
-			fos.close();
-			Toast.makeText(ConductorTicketActivity.this, "Open Thermer to print the ticket", Toast.LENGTH_SHORT).show();
+			// Create the data string for the intent
+			String str = "<IMAGE>1#" + base64Image + "<110>Ticket by BUSIFY!";
+
+			// Send the intent
+			Intent printIntent = new Intent();
+			printIntent.setAction(Intent.ACTION_SEND);
+			printIntent.setPackage("mate.bluetoothprint");
+			printIntent.putExtra(Intent.EXTRA_TEXT, str);
+			printIntent.setType("text/plain");
+			startActivity(printIntent);
+
+			// Open the Bluetooth Print app explicitly
+			Intent openAppIntent = getPackageManager().getLaunchIntentForPackage("mate.bluetoothprint");
+			if (openAppIntent != null) {
+				startActivity(openAppIntent);
+				Toast.makeText(ConductorTicketActivity.this, "Ticket printed!", Toast.LENGTH_SHORT).show();
+			} else {
+				// Handle the case where the launch intent is null (app not found)
+				Toast.makeText(ConductorTicketActivity.this, "Error opening Thermer app", Toast.LENGTH_SHORT).show();
+			}
+			updateTicketValidity();  // invalid after the scan
 		} catch (Exception e) {
 			e.printStackTrace();
-			Toast.makeText(ConductorTicketActivity.this, "Error saving ticket to gallery", Toast.LENGTH_SHORT).show();
+			Toast.makeText(ConductorTicketActivity.this, "Error printing the ticket", Toast.LENGTH_SHORT).show();
 		}
 	}
 }

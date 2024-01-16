@@ -24,6 +24,7 @@
 	<string name="conductor">Conductor</string>
 	<string name="passenger">Passenger</string>
 	<string name="default_web_client_id" translatable="false">233456013830-oev88ihh147f3jh046krccvhba9qukst.apps.googleusercontent.com</string>
+	<string name="razor_token" translatable="false">rzp_test_kAv1QhiIufZDk0</string>
 	<string name="account">Account</string>
 	<string name="sign_out">Sign Out</string>
 	<string name="location_header">Choose Locations</string>

@@ -19,11 +19,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.sip.busify.databinding.ActivityGetTicketBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.zxing.BarcodeFormat;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
+import com.sip.busify.databinding.ActivityGetTicketBinding;
 
 import java.io.File;
 import java.io.OutputStream;
@@ -112,7 +112,7 @@ public class GetTicketActivity extends AppCompatActivity {
 				saveBitmap(layout);
 				// Toast.makeText(GetTicketActivity.this, "Ticket saved successfully", Toast.LENGTH_SHORT).show();
 			});
-			sampleQr.setOnClickListener(v -> Toast.makeText(GetTicketActivity.this, "Ticket no. " + ticketNum, Toast.LENGTH_SHORT).show());
+			sampleQr.setOnClickListener(v -> Toast.makeText(GetTicketActivity.this, "Conductor will scan this QR", Toast.LENGTH_SHORT).show());
 		}
 	}
 
@@ -184,54 +184,55 @@ public class GetTicketActivity extends AppCompatActivity {
 			e.printStackTrace();
 		}
 	}
-	// End of the day ticket validity
-//	private void scheduleDailyUpdate() {
-//		Timer timer = new Timer();
-//		Calendar calendar = Calendar.getInstance();
-//
-//		// Set the time for 12:00 AM
-//		calendar.set(Calendar.HOUR_OF_DAY, 0);
-//		calendar.set(Calendar.MINUTE, 0);
-//		calendar.set(Calendar.SECOND, 0);
-//
-//		// If the current time is already past 12:00 AM, schedule for the next day
-//		if (calendar.getTime().before(new Date())) {
-//			calendar.add(Calendar.DAY_OF_MONTH, 1);
-//		}
-//
-//		// Calculate the delay until the next 12:00 AM
-//		long delay = calendar.getTime().getTime() - new Date().getTime();
-//
-//		// Schedule the task to run daily
-//		timer.scheduleAtFixedRate(new TimerTask() {
-//			@Override
-//			public void run() {
-//				// Update "isValid" field for the ticket
-//				updateTicketValidity();
-//			}
-//		}, delay, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
-//	}
 
-	// 3 minutes validity for test purpose
+	// End of the day ticket validity
 	private void scheduleDailyUpdate() {
 		Timer timer = new Timer();
 		Calendar calendar = Calendar.getInstance();
 
-		// Set the time for 1 minute from now
-		calendar.add(Calendar.MINUTE, 1);
+		// Set the time for 12:00 AM
+		calendar.set(Calendar.HOUR_OF_DAY, 0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
 
-		// Calculate the delay until the next minute
+		// If the current time is already past 12:00 AM, schedule for the next day
+		if (calendar.getTime().before(new Date())) {
+			calendar.add(Calendar.DAY_OF_MONTH, 1);
+		}
+
+		// Calculate the delay until the next 12:00 AM
 		long delay = calendar.getTime().getTime() - new Date().getTime();
 
-		// Schedule the task to run every minute
+		// Schedule the task to run daily
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
 				// Update "isValid" field for the ticket
 				updateTicketValidity();
 			}
-		}, delay, 60 * 3000); // 3 minute in milliseconds
+		}, delay, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
 	}
+
+	// 3 minutes validity for test purpose
+//	private void scheduleDailyUpdate() {
+//		Timer timer = new Timer();
+//		Calendar calendar = Calendar.getInstance();
+//
+//		// Set the time for 1 minute from now
+//		calendar.add(Calendar.MINUTE, 1);
+//
+//		// Calculate the delay until the next minute
+//		long delay = calendar.getTime().getTime() - new Date().getTime();
+//
+//		// Schedule the task to run every minute
+//		timer.scheduleAtFixedRate(new TimerTask() {
+//			@Override
+//			public void run() {
+//				// Update "isValid" field for the ticket
+//				updateTicketValidity();
+//			}
+//		}, delay, 60 * 3000); // 3 minute in milliseconds
+//	}
 
 	private void updateTicketValidity() {
 		Map<String, Object> updates = new HashMap<>();

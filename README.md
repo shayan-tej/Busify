@@ -18,6 +18,7 @@ Busify is an Android app developed for convenient RTC bus ticket booking, paymen
 - **Backend**: Java and Kotlin for app logic.
 - **Database**: Firebase Realtime Database and Firestore for real-time data storage.
 - **Payment Integration**: Razorpay for dummy payment processing.
+- **Ticket Printing**: Thermer for printing the ticket through intent.
 
 ## Screenshots
 
@@ -34,6 +35,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 - Android Studio
 - Firebase account with Realtime Database and Firestore set up
 - Razorpay account for payment processing
+- Thermer for ticket printing
 
 ### Installation
 

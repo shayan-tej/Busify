@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import com.sip.busify.databinding.ActivityPaymentBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.razorpay.Checkout;
+import com.sip.busify.databinding.ActivityPaymentBinding;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -96,7 +96,7 @@ public class PaymentActivity extends AppCompatActivity {
 				// initialize Razorpay account.
 				Checkout checkout = new Checkout();
 				// set your id as below
-				checkout.setKeyID("rzp_test_kAv1QhiIufZDk0");
+				checkout.setKeyID(getString(R.string.razor_token));
 				// set image
 				//checkout.setImage(R.drawable.gfgimage);
 				// initialize json object
