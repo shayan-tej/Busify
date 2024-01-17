@@ -130,6 +130,7 @@ public class ConductorTicketActivity extends AppCompatActivity {
 			printIntent.putExtra(Intent.EXTRA_TEXT, str);
 			printIntent.setType("text/plain");
 			startActivity(printIntent);
+			updateTicketValidity();  // invalid after the scan
 
 			// Open the Bluetooth Print app explicitly
 			Intent openAppIntent = getPackageManager().getLaunchIntentForPackage("mate.bluetoothprint");
@@ -140,7 +141,6 @@ public class ConductorTicketActivity extends AppCompatActivity {
 				// Handle the case where the launch intent is null (app not found)
 				Toast.makeText(ConductorTicketActivity.this, "Error opening Thermer app", Toast.LENGTH_SHORT).show();
 			}
-			updateTicketValidity();  // invalid after the scan
 		} catch (Exception e) {
 			e.printStackTrace();
 			Toast.makeText(ConductorTicketActivity.this, "Error printing the ticket", Toast.LENGTH_SHORT).show();
